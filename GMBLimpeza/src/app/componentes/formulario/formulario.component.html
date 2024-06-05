@@ -1,0 +1,12 @@
+<div>
+  <input type="string" [(ngModel)]="novoItem.cidade" placeholder="Informe a Cidade"><br>
+  <input type="string" [(ngModel)]="novoItem.telefone" placeholder="Informe seu Celular"><br>
+  <label for="slider">Quantidade de Quartos: {{ novoItem.qtdeQuarto }}</label>
+  <input type="range" min="1" max="6" [(ngModel)]="novoItem.qtdeQuarto" placeholder="Quantidade de Quartos"><br>
+  <label for="slider">Quantidade de Banheiros: {{ novoItem.qtdeBanheiro }}</label>
+  <input type="range" min="1" max="6" [(ngModel)]="novoItem.qtdeBanheiro" placeholder="Quantidade de Banheiros"><br>
+  <button (click)="simular()">Simular</button>
+</div>
+
+<div>Valor: <strong> R${{resultado}}</strong></div>
+<button (click)="solicitarServico()">Solicitar Limpeza</button>
