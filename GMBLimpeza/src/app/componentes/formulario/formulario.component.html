@@ -1,12 +1,18 @@
 <div>
-  <input type="string" [(ngModel)]="novoItem.cidade" placeholder="Informe a Cidade"><br>
-  <input type="string" [(ngModel)]="novoItem.telefone" placeholder="Informe seu Celular"><br>
-  <label for="slider">Quantidade de Quartos: {{ novoItem.qtdeQuarto }}</label>
-  <input type="range" min="1" max="6" [(ngModel)]="novoItem.qtdeQuarto" placeholder="Quantidade de Quartos"><br>
-  <label for="slider">Quantidade de Banheiros: {{ novoItem.qtdeBanheiro }}</label>
-  <input type="range" min="1" max="6" [(ngModel)]="novoItem.qtdeBanheiro" placeholder="Quantidade de Banheiros"><br>
+  <p>Nome:<input type="string" [(ngModel)]="atendimento.nome" placeholder="Informe a Nome"></p>
+  <p>Email:<input type="email" [(ngModel)]="atendimento.email" placeholder="Informe o Email"></p>
+  <p>Logradouro:<input type="string" [(ngModel)]="atendimento.logradouro" placeholder="Informe a Rua"></p>
+  <p>Numero:<input type="string" [(ngModel)]="atendimento.numero" placeholder="Informe o Numero"></p>
+  <p>Cidade:<input type="string" [(ngModel)]="atendimento.cidade" placeholder="Informe a Cidade"></p>
+  <p>Estado:<input type="string" [(ngModel)]="atendimento.estado" placeholder="Informe o Estado"></p>
+  <label for="slider">Quantidade de Quartos: {{ atendimento.qtdeQuarto }}</label>
+  <input type="range" min="1" max="6" [(ngModel)]="atendimento.qtdeQuarto" placeholder="Quantidade de Quartos"><br>
+  <label for="slider">Quantidade de Banheiros: {{ atendimento.qtdeBanheiro }}</label>
+  <input type="range" min="1" max="6" [(ngModel)]="atendimento.qtdeBanheiro" placeholder="Quantidade de Banheiros"><br>
   <button (click)="simular()">Simular</button>
 </div>
 
-<div>Valor: <strong> R${{resultado}}</strong></div>
-<button (click)="solicitarServico()">Solicitar Limpeza</button>
+<div *ngIf="isVisible" >Valor: <strong> R${{resultado}}</strong>
+  <p>Data da Limpeza:<input type="date" [(ngModel)]="atendimento.data" placeholder="Informe a Data Solicitada"></p>
+  <button (click)="solicitarServico(atendimento)">Solicitar Limpeza</button>
+</div>
